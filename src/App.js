@@ -4,7 +4,7 @@ import axios from "axios";
 function App() {
 
   useEffect(() => {
-    axios.post('http://127.0.0.1:8000/usuarios/', {
+    axios.get('http://127.0.0.1:8000/usuarios/', {
       name: "teste",       //sending data to backend
       description: "teste"
     })
