@@ -28,6 +28,11 @@ class TestSetUp(APITestCase):
             'senha': '1234'
         }
 
+        self.dados_incorretos_login = {
+            'login': 'userNaoExistente',
+            'senha': '1234'
+        }
+
         self.user = UsuarioModel.objects.create(login='user', senha='1234', dt_nascimento='2001-01-01')
         self.user2 = UsuarioModel.objects.create(login='user2', senha='1234', dt_nascimento='2002-02-02')
 
@@ -72,6 +77,11 @@ class TestViewUsuario(TestSetUp):
 
     def test_realizar_login_com_dados_invalidos(self):
         response = self.client.post(self.login_url)
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_realizar_login_com_dados_incorretos(self):
+        response = self.client.post(self.login_url, self.dados_incorretos_login)
 
         self.assertEqual(response.status_code, 401)
 
