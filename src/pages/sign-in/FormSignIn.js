@@ -23,17 +23,16 @@ function FormSignIn() {
                 if(res.status === 200) {
                     showAlert('', 'Login realizado com sucesso!', 'success', 4000)
                     navigate('/users')
-                } else if(res.status === 401) {
-                    showAlert('', 'Verifique login e/ou senha!', 'error', 4000)
-                    resetField('senha')
                 }
 
                 stopLoader()
             })
             .catch(err => {
-                console.log(err)
                 stopLoader()
-                resetField('senha')
+                if(err.response.status === 401) {
+                    showAlert('', 'Login e/ou senha incorretos!', 'error', 4000)
+                    resetField('senha')
+                }
             })
     }
 
