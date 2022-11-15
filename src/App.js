@@ -1,19 +1,14 @@
 import { useEffect } from "react";
-import axios from "axios";
+import usersServices from "./providers/http-service/usersServices";
 
 function App() {
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/usuarios/', {
-      name: "teste",       //sending data to backend
-      description: "teste"
-    })
-      .then(response => {
-        console.log(response.data)    // view the response
+    usersServices.listar()
+      .then(res => {
+        console.log(res)
       })
-      .catch(error => {
-        console.log(error)            // check if any error
-      })
+      .catch(err =>  console.log(err))
   }, [])
 
   return (
