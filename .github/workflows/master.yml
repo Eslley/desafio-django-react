@@ -18,7 +18,7 @@ jobs:
           pip install -r requirements.txt
       - name: Running tests
         run: |
-          python manage.py test
+          python manage.py test --keepdb
           
       - name: Deploy
         uses: akhileshns/heroku-deploy@v3.12.12
