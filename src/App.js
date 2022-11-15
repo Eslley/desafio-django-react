@@ -1,19 +1,23 @@
-import { useEffect } from "react";
-import usersServices from "./providers/http-service/usersServices";
+import { Container } from "@mui/material";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import SignIn from "./pages/sign-in/SignIn";
+import SignUp from "./pages/sign-up/SignUp";
+import Users from "./pages/users/Users";
 
 function App() {
-
-  useEffect(() => {
-    usersServices.listar()
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err =>  console.log(err))
-  }, [])
-
   return (
-    <h1>Hello</h1>
-  );
+    <Router>
+
+    <Container sx={{ height: '100%', mt: '100px', pb: '1em', }}>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/users" element={<Users />} />
+      </Routes>
+    </Container>
+
+    </Router>
+  )
 }
 
 export default App;

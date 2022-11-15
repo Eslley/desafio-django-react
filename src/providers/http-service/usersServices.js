@@ -8,6 +8,10 @@ export default {
 
     salvar: (user) => {
         return http.post('usuarios/create/', user)
+    },
+
+    login: (user) => {
+        return http.post('usuarios/login/', user)
     }
 
 }
