@@ -73,7 +73,7 @@ class TestViewUsuario(TestSetUp):
     def test_realizar_login_com_dados_invalidos(self):
         response = self.client.post(self.login_url)
 
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 401)
 
     def test_realizar_login_corretamente(self):
         response = self.client.post(self.login_url, self.dados_corretos_login)
