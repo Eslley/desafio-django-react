@@ -21,3 +21,15 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+/staticfiles
+
+# Backup files # 
+*.bak 
