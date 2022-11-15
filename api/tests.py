@@ -12,7 +12,7 @@ class TestSetUp(APITestCase):
         self.login_url = reverse('usuario-login')
 
         self.dados_dt_nascimento_invalida = {
-            'login': 'user',
+            'login': 'userteste',
             'senha': '1234',
             'dt_nascimento': '2001-01' 
         }
@@ -24,7 +24,7 @@ class TestSetUp(APITestCase):
         }
 
         self.dados_corretos_login = {
-            'login': 'user2',
+            'login': 'userteste2',
             'senha': '1234'
         }
 
@@ -34,7 +34,7 @@ class TestSetUp(APITestCase):
         }
 
         self.user = UsuarioModel.objects.create(login='user', senha='1234', dt_nascimento='2001-01-01')
-        self.user2 = UsuarioModel.objects.create(login='user2', senha='1234', dt_nascimento='2002-02-02')
+        self.user2 = UsuarioModel.objects.create(login='userteste2', senha='1234', dt_nascimento='2002-02-02')
 
         return super().setUp()
 
