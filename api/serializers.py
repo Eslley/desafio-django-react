@@ -23,3 +23,8 @@ class UsuarioSerializer(serializers.ModelSerializer):
 
         all = min + max + num + sybs
         return "".join(random.sample(all,8))
+
+class LoginUsuarioSerializer(serializers.Serializer):
+
+    login = serializers.CharField(max_length=100, required=True)
+    senha = serializers.CharField(max_length=100, required=True)

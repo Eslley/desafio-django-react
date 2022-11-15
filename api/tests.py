@@ -9,6 +9,7 @@ class TestSetUp(APITestCase):
         self.create_url = reverse('usuario-create')
         self.delete_url = reverse('usuario-delete', kwargs={'pk': -1})
         self.list_url = reverse('usuarios-list')
+        self.login_url = reverse('usuario-login')
 
         self.dados_dt_nascimento_invalida = {
             'login': 'user',
@@ -17,9 +18,14 @@ class TestSetUp(APITestCase):
         }
 
         self.dados_corretos = {
-            'login': 'user',
+            'login': 'userCorreto',
             'senha': '1234',
             'dt_nascimento': '2001-01-01' 
+        }
+
+        self.dados_corretos_login = {
+            'login': 'user2',
+            'senha': '1234'
         }
 
         self.user = UsuarioModel.objects.create(login='user', senha='1234', dt_nascimento='2001-01-01')
@@ -61,5 +67,15 @@ class TestViewUsuario(TestSetUp):
     def test_deletar_usuario_corretamente(self):
         self.delete_url = reverse('usuario-delete', kwargs={'pk': self.user.pk})
         response = self.client.delete(self.delete_url)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_realizar_login_com_dados_invalidos(self):
+        response = self.client.post(self.login_url)
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_realizar_login_corretamente(self):
+        response = self.client.post(self.login_url, self.dados_corretos_login)
 
         self.assertEqual(response.status_code, 200)
