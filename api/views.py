@@ -43,6 +43,6 @@ def usuarioLogin(request):
             if(userSerializer.is_valid):
                 return Response(userSerializer.data, status=status.HTTP_200_OK)
 
-        return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     except UsuarioModel.DoesNotExist:
         return Response({'message': 'Erro ao realizar login, verifique login e/ou senha'}, status=status.HTTP_401_UNAUTHORIZED)
