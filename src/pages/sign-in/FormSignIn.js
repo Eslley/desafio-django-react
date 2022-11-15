@@ -1,5 +1,5 @@
-import { Key, Person } from "@mui/icons-material"
-import { Button, Grid, InputAdornment, TextField } from "@mui/material"
+import { AddCircle, Key, Person } from "@mui/icons-material"
+import { Button, Divider, Grid, InputAdornment, TextField } from "@mui/material"
 import { useForm } from "react-hook-form"
 import { useLoader } from "../../components/loading/LoadingProvider"
 import { useAlertMessage } from "../../components/alert/AlertMessageProvider"
@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 
 function FormSignIn() {
 
-    const { register, formState: { errors, isValid }, handleSubmit, resetField } = useForm({ mode: 'onChange' })
+    const { register, formState: { errors }, handleSubmit, resetField } = useForm({ mode: 'onChange' })
 
     const { startLoader, stopLoader } = useLoader()
     const { showAlert } = useAlertMessage()
@@ -34,6 +34,10 @@ function FormSignIn() {
                     resetField('senha')
                 }
             })
+    }
+
+    function notWorking() {
+        showAlert('', 'Esta funcionalidade não foi implementada ainda!', 'warning', 4000)
     }
 
     return (
@@ -77,8 +81,20 @@ function FormSignIn() {
                     />
                 </Grid>
 
-                <Grid container item justifyContent="center" mt="0.6em">
-                    <Button type="submit" disabled={!isValid} variant="contained">Entrar</Button>
+                <Grid container item justifyContent="center" mt="0.6em" mb="2em">
+                    <Button sx={{ width: "95%", textTransform: "none" }} type="submit" variant="contained">Entrar</Button>
+                </Grid>
+
+                <Divider />
+
+                <Grid mt="1.5em" container item justifyContent="space-around">
+                    <Grid item>
+                        <Button onClick={notWorking} sx={{ textTransform: "none" }} variant="text">Esqueceu a senha</Button>
+                    </Grid>
+
+                    <Grid item>
+                        <Button onClick={() => navigate('/sign-up')} sx={{ textTransform: "none" }} variant="text">Cadastrar Usuário</Button>
+                    </Grid>
                 </Grid>
             </Grid>
         </form>
