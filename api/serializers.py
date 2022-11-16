@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from api.models import UsuarioModel
 import random
+from rest_framework_csv import renderers as r
+from drf_excel.renderers import XLSXRenderer
+from drf_excel.mixins import XLSXFileMixin
 
 class UsuarioSerializer(serializers.ModelSerializer):
 
@@ -28,3 +31,14 @@ class LoginUsuarioSerializer(serializers.Serializer):
 
     login = serializers.CharField(max_length=100, required=True)
     senha = serializers.CharField(max_length=100, required=True)
+
+class UsuarioRenderCSV(r.CSVRenderer):
+    
+    header = ['Id', 'Login', 'Senha', 'Dt Nascimento']
+    
+class UsuarioRenderXLSX(XLSXRenderer):
+    
+    id = serializers.IntegerField(label=("Id"))
+    login = serializers.CharField(label=("Login"))
+    senha = serializers.CharField(label=("Senha"))
+    dt_nascimento = serializers.DateField(label=("Dt Nascimento"))
