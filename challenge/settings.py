@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import django_heroku
 import sys
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5nwn28gc6cmpd%a^$h(h_#ax6igg3g)csxz=z&psa9nl*l%@n3'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -93,11 +94,11 @@ if 'test' in sys.argv:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-            'NAME': 'd1476q8gcrle3e',                      
-            'USER': 'ckeiafjuvtqdzn',                     
-            'PASSWORD': 'c25fc5dbedfc98bc74a6d37f36e2f3fe96aa8e5c62dfd7defce17cfcc042a23f',                  
-            'HOST': 'ec2-44-195-132-31.compute-1.amazonaws.com',                      
-            'PORT': '5432',
+            'NAME': config('DBT_NAME'),                      
+            'USER': config('DBT_USER'),                     
+            'PASSWORD': config('DBT_PASSWORD'),                  
+            'HOST': config('DBT_HOST'),                      
+            'PORT': config('DBT_PORT'), 
             'TEST': {
                 'MIRROR': 'default'
             }                    
@@ -107,11 +108,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-            'NAME': 'd878htm4gmmc40',                      
-            'USER': 'sugfstbaofoxkk',                     
-            'PASSWORD': '8c5c978f1c7afddd543b63e4040603624fd2abafbde803982694270b0da75a16',                  
-            'HOST': 'ec2-52-3-2-245.compute-1.amazonaws.com',                      
-            'PORT': '5432'                    
+            'NAME': config('DB_NAME'),                      
+            'USER': config('DB_USER'),                     
+            'PASSWORD': config('DB_PASSWORD'),                  
+            'HOST': config('DB_HOST'),                      
+            'PORT': config('DB_PORT')                    
         }
     }
 
