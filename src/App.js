@@ -10,9 +10,9 @@ function App() {
 
     <Container sx={{ height: '100%', mt: '100px', pb: '1em', }}>
       <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/web" element={<SignIn />} />
+        <Route path="/web/sign-up" element={<SignUp />} />
+        <Route path="/web/users" element={<Users />} />
       </Routes>
     </Container>
 

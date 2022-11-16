@@ -43,7 +43,7 @@ function Users() {
 
   return (
     <>
-      <PageTitle handleBack={() => navigate('/')} title="Usuários" icon={<Groups />} />
+      <PageTitle handleBack={() => navigate('/web')} title="Usuários" icon={<Groups />} />
 
       {users.length > 0 ? (
         <>

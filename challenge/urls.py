@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
+
+def redirect_view(request):
+    response = redirect('/web')
+    return response
 
 urlpatterns = [
     path('api/usuarios/', include('api.urls')),
-    re_path('.*', TemplateView.as_view(template_name='index.html'))
+    path('', redirect_view),
+    re_path(r'^web', TemplateView.as_view(template_name='index.html'))
 ]
+

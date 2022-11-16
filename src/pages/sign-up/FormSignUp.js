@@ -21,7 +21,7 @@ function FormSignUp() {
         usersServices.salvar(data)
             .then(res => {
                 if(res.status === 201) {
-                    navigate('/')
+                    navigate('/web')
 
                     if(res.data.senha !== data.senha){
                         showAlert('', `Sua senha é: ${res.data.senha}`, 'success', 7000)

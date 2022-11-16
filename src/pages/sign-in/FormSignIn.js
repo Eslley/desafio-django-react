@@ -22,7 +22,7 @@ function FormSignIn() {
             .then(res => {
                 if(res.status === 200) {
                     showAlert('', 'Login realizado com sucesso!', 'success', 4000)
-                    navigate('/users')
+                    navigate('users')
                 }
 
                 stopLoader()
@@ -93,7 +93,7 @@ function FormSignIn() {
                     </Grid>
 
                     <Grid item>
-                        <Button onClick={() => navigate('/sign-up')} sx={{ textTransform: "none" }} variant="text">Cadastrar Usuário</Button>
+                        <Button onClick={() => navigate('sign-up')} sx={{ textTransform: "none" }} variant="text">Cadastrar Usuário</Button>
                     </Grid>
                 </Grid>
             </Grid>
