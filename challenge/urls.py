@@ -18,6 +18,6 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('usuarios/', include('api.urls')),
+    path('api/usuarios/', include('api.urls')),
     re_path('.*', TemplateView.as_view(template_name='index.html'))
 ]

@@ -52,7 +52,7 @@ function Users() {
           <Grid container justifyContent="center">
             <Grid item container justifyContent="center" xs={5} sm={3} md={2}>
               <Box sx={{ mt: '2em' }}>
-                <Fab href="https://desafio-tech.herokuapp.com/usuarios/?format=json" download="users_json.json" color="primary" variant="extended" aria-label="add">
+                <Fab href="https://desafio-tech.herokuapp.com/api/usuarios/?format=json" download="users_json.json" color="primary" variant="extended" aria-label="add">
                   <Search />
                   JSON
                 </Fab>
@@ -61,7 +61,7 @@ function Users() {
 
             <Grid item container justifyContent="center" xs={5} sm={3} md={2}>
               <Box sx={{ mt: '2em' }}>
-                <Fab href="https://desafio-tech.herokuapp.com/usuarios/?format=csv" download="users_csv.csv" color="primary" variant="extended" aria-label="add">
+                <Fab href="https://desafio-tech.herokuapp.com/api/usuarios/?format=csv" download="users_csv.csv" color="primary" variant="extended" aria-label="add">
                   <Download />
                   CSV
                 </Fab>
@@ -70,7 +70,7 @@ function Users() {
 
             <Grid item container justifyContent="center" xs={12}>
               <Box sx={{ mt: '1em' }}>
-                <Fab href="https://desafio-tech.herokuapp.com/usuarios/?format=xlsx" download="users_xlsx.xlsx" color="primary" variant="extended" aria-label="add">
+                <Fab href="https://desafio-tech.herokuapp.com/api/usuarios/?format=xlsx" download="users_xlsx.xlsx" color="primary" variant="extended" aria-label="add">
                   <Download />
                   XLSX
                 </Fab>
