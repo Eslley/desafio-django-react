@@ -47,7 +47,7 @@ function Users() {
 
       {users.length > 0 ? (
         <>
-          <UsersTable users={users} />
+          <UsersTable users={users} setUsers={setUsers} />
 
           <Grid container justifyContent="center">
             <Grid item container justifyContent="center" xs={5} sm={3} md={2}>

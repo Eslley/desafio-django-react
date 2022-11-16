@@ -12,6 +12,10 @@ export default {
 
     login: (user) => {
         return http.post('usuarios/login/', user)
-    }
+    },
+
+    deletar: (userId) => {
+        return http.delete(`usuarios/delete/${userId}/`)
+    },
 
 }
