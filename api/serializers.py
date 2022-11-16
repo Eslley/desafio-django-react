@@ -35,10 +35,14 @@ class LoginUsuarioSerializer(serializers.Serializer):
 class UsuarioRenderCSV(r.CSVRenderer):
     
     header = ['Id', 'Login', 'Senha', 'Dt Nascimento']
-    
-class UsuarioRenderXLSX(XLSXRenderer):
-    
-    id = serializers.IntegerField(label=("Id"))
-    login = serializers.CharField(label=("Login"))
-    senha = serializers.CharField(label=("Senha"))
-    dt_nascimento = serializers.DateField(label=("Dt Nascimento"))
+
+class UsuarioXLSXSerializer(serializers.ModelSerializer):
+
+    Id = serializers.IntegerField(source="id")
+    Login = serializers.CharField(source="login")
+    Senha = serializers.CharField(source="senha")
+    Dt_Nascimento = serializers.CharField(source="dt_nascimento")
+
+    class Meta:
+        model = UsuarioModel
+        fields = ['Id', 'Login', 'Senha', 'Dt_Nascimento']
