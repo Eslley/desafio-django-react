@@ -2,6 +2,7 @@ import { Block, Groups } from "@mui/icons-material"
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import { Box } from "@mui/system"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useAlertMessage } from "../../components/alert/AlertMessageProvider"
 import PageTitle from "../../components/layout/PageTitle"
 import { useLoader } from "../../components/loading/LoadingProvider"
@@ -13,6 +14,8 @@ function Users() {
 
   const { startLoader, stopLoader } = useLoader()
   const { showAlert } = useAlertMessage()
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     startLoader()
@@ -39,10 +42,10 @@ function Users() {
 
   return (
     <>
-      <PageTitle title="Usuários" icon={<Groups />} />
+      <PageTitle handleBack={() => navigate('/')} title="Usuários" icon={<Groups />} />
 
       {users.length > 0 ?
-        <TableContainer sx={{ overflowX: 'hidden' }} component={Paper}>
+        <TableContainer component={Paper}>
           <Table sx={{ minWidth: 300 }} size="small">
             <TableHead>
               <TableRow>
