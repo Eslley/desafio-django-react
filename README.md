@@ -30,7 +30,7 @@ Para utilizar a aplicação acesse [link](https://desafio-tech.herokuapp.com/web
 </p>
 
 <p align="center">
-    <img src="https://imgur.com/Um4rcVr.png" width="40%">
+    <img src="https://imgur.com/XqtwEkU.png" width="40%">
 </p>
 
 **Documentação da API**
