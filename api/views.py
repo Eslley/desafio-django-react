@@ -30,7 +30,7 @@ class UsuariosListView(RetrieveAPIView):
                 'Dt Nascimento': user.dt_nascimento.strftime("%d/%m/%Y")}
                     for user in self.queryset.all()]
 
-            return Response(content, status=status.HTTP_200_OK)
+            return Response(content, headers={'Content-Disposition': 'attachment; filename="usuários_csv.csv"'}, status=status.HTTP_200_OK)
 
         elif request.GET['format'] == 'xlsx':
             content = [{
