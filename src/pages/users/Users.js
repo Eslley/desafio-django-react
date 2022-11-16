@@ -1,4 +1,4 @@
-import { Block, Download, Groups, Search } from "@mui/icons-material"
+import { Block, Download, Groups } from "@mui/icons-material"
 import { Fab, Grid } from "@mui/material"
 import { Box } from "@mui/system"
 import { useEffect, useState } from "react"
@@ -53,7 +53,7 @@ function Users() {
             <Grid item container justifyContent="center" xs={5} sm={3} md={2}>
               <Box sx={{ mt: '2em' }}>
                 <Fab href="https://desafio-tech.herokuapp.com/api/usuarios/?format=json" download="users_json.json" color="primary" variant="extended" aria-label="add">
-                  <Search />
+                  <Download />
                   JSON
                 </Fab>
               </Box>
