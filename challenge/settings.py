@@ -89,27 +89,31 @@ WSGI_APPLICATION = 'challenge.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# if 'test' in sys.argv:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-# else:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-        'NAME': 'd878htm4gmmc40',                      
-        'USER': 'sugfstbaofoxkk',                     
-        'PASSWORD': '8c5c978f1c7afddd543b63e4040603624fd2abafbde803982694270b0da75a16',                  
-        'HOST': 'ec2-52-3-2-245.compute-1.amazonaws.com',                      
-        'PORT': '5432',
-        'TEST': {
-            'MIRROR': 'default'
-        }                    
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+            'NAME': 'd1476q8gcrle3e',                      
+            'USER': 'ckeiafjuvtqdzn',                     
+            'PASSWORD': 'c25fc5dbedfc98bc74a6d37f36e2f3fe96aa8e5c62dfd7defce17cfcc042a23f',                  
+            'HOST': 'ec2-44-195-132-31.compute-1.amazonaws.com',                      
+            'PORT': '5432',
+            'TEST': {
+                'MIRROR': 'default'
+            }                    
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+            'NAME': 'd878htm4gmmc40',                      
+            'USER': 'sugfstbaofoxkk',                     
+            'PASSWORD': '8c5c978f1c7afddd543b63e4040603624fd2abafbde803982694270b0da75a16',                  
+            'HOST': 'ec2-52-3-2-245.compute-1.amazonaws.com',                      
+            'PORT': '5432'                    
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
