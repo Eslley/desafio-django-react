@@ -136,3 +136,29 @@ URL Base: https://desafio-tech.herokuapp.com/api/
 
     Status: 404
     ``` 
+
+**Para executar o aplicação localmente**
+
+  *OBS: é necessário o arquivo .env na raiz do projeto*
+
+  - Instalar e ativar uma máquina virtual python
+  ```
+    $ python -m venv myvenv
+    $ ./myvenv/Scripts/activate
+  ``` 
+
+  - Instalar dependências do projeto python
+  ```
+    $ pip install -r requirements.txt
+  ``` 
+
+  - Instalar dependências do node.js e gerar /build
+  ```
+    $ npm install
+    $ npm run build
+  ``` 
+
+  - Instalar dependências do projeto python
+  ```
+    $ python manage.py runserver
+  ``` 
