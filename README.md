@@ -158,7 +158,7 @@ URL Base: https://desafio-tech.herokuapp.com/api/
     $ npm run build
   ``` 
 
-  - Instalar dependências do projeto python
+  - Subir servidor do Django
   ```
     $ python manage.py runserver
   ``` 
